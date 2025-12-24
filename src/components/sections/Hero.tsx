@@ -79,13 +79,13 @@ export function Hero() {
 
             <div className="flex flex-col sm:flex-row gap-4 mb-10">
               <GlowButton variant="primary" className="w-full sm:w-auto shadow-xl text-sm py-4 px-8">
-                Prendre rendez-vous
+                Contacter nous
               </GlowButton>
               
               <GlowButton 
                 variant="emergency" 
                 className="w-full sm:w-auto flex items-center justify-center bg-[#0F4C5C] text-white text-sm py-4 px-8 font-bold border-none shadow-lg hover:bg-[#0a3540]"
-                onClick={() => window.location.href = 'tel:+212537371113'}
+                onClick={() => window.location.href = 'tel:+212601851426'}
               >
                 <Phone size={18} className="mr-2 text-[#2fb6d4]" />
                 Urgence 24/7
