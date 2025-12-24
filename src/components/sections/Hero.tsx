@@ -63,7 +63,7 @@ export function Hero() {
             {/* Badge caché sur Mobile (car déjà affiché en haut) mais visible sur Desktop */}
             <div className="hidden lg:inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#0F4C5C]/20 bg-[#0F4C5C]/5 text-[#0F4C5C] text-[10px] font-bold uppercase tracking-widest mb-6">
               <span className="flex h-2 w-2 rounded-full bg-[#2fb6d4] animate-pulse"></span>
-              Dental.Zairi - Cabinet ouvert
+              Dental.Zairi - Clinic ouvert
             </div>
 
             <h1 className="text-4xl md:text-7xl font-extrabold text-[#1E293B] mb-6 leading-tight">
