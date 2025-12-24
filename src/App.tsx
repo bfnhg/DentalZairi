@@ -22,7 +22,7 @@ function App() {
         <Emergency />
         <Contact />
         <Footer /> */}
-      </div>
+      </div>d
     </LanguageProvider>
   );
 }

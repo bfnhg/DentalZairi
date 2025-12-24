@@ -150,7 +150,7 @@ export function Hero() {
                     </div>
                     <div className="text-left">
                       <p className="text-[#1E293B] font-bold text-sm leading-none">Dental Zairi</p>
-                      <p className="text-[#2fb6d4] text-[10px] uppercase font-bold mt-1 tracking-tight">Kénitra, Maroc</p>
+                      <p className="text-[#2fb6d4] text-[10px] uppercase font-bold mt-1 tracking-tight">Clinic, Marrakech</p>
                     </div>
                   </div>
                   <Award className="text-[#0F4C5C]" size={22} />
