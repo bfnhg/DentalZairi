@@ -47,7 +47,7 @@ export function Hero() {
         <div className="flex lg:hidden justify-center mb-6">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#0F4C5C]/20 bg-[#0F4C5C]/5 text-[#0F4C5C] text-[10px] font-bold uppercase tracking-widest">
               <span className="flex h-2 w-2 rounded-full bg-[#2fb6d4] animate-pulse"></span>
-              Dental.Zairi - Cabinet ouvert
+              Dental.Zairi - Clinic ouvert
             </div>
         </div>
 

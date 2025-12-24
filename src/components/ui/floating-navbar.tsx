@@ -47,16 +47,25 @@ export const FloatingNav = ({
           )}
         >
           {/* LOGO */}
-          <a href="#home" className="flex items-center pr-3 md:pr-6 md:border-r md:border-white/10">
-            <img
-              src="/image/dent.png"
-              alt="Logo"
-              className="h-7 w-7 md:h-8 md:w-8 object-contain"
-              onError={(e) => {
-                e.currentTarget.style.display = "none";
-              }}
-            />
-          </a>
+          <div className="flex items-center gap-2">
+  {/* Icône stylisée inspirée du logo (optionnel) */}
+  <div className="hidden sm:block">
+    {/* <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+       <path d="M12 2C12 2 15 4 15 8C15 12 12 16 12 16C12 16 9 12 9 8C9 4 12 2 12 2Z" fill="#2fb6d4"/>
+       <path d="M12 22C12 22 19 18 19 12C19 6 12 2 12 2C12 2 5 6 5 12C5 18 12 22 12 22Z" stroke="#0F4C5C" strokeWidth="2"/>
+    </svg> */}
+  </div>
+
+  {/* Texte Signature */}
+  <div className="flex flex-col leading-none">
+    <span className="text-xl md:text-2xl font-extrabold tracking-tighter font-['Montserrat'] bg-clip-text text-transparent bg-gradient-to-r from-[#fefefe] to-[#1d8ba6]">
+      DENTAL ZAIRI
+    </span>
+    {/* <span className="text-[7px] md:text-[8px] font-bold text-[#0F4C5C] tracking-[0.2em] uppercase mt-0.5">
+      Centre d'implantologie et d'esthétique
+    </span> */}
+  </div>
+</div>
 
           {/* VERSION MOBILE : 2 liens visibles directement */}
           <div className="flex md:hidden items-center space-x-4 text-[10px] font-bold uppercase tracking-[0.2em]">
