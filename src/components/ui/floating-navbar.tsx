@@ -31,8 +31,8 @@ export const FloatingNav = ({
   });
 
   // Les 2 premiers items affichés directement sur mobile
-  const mobileVisibleItems = navItems.slice(0, 2);
-  const mobileMenuItems = navItems.slice(2);
+  const mobileVisibleItems = navItems.slice(0, 1);
+  const mobileMenuItems = navItems.slice(1);
 
   return (
     <>
@@ -57,13 +57,14 @@ export const FloatingNav = ({
   </div>
 
   {/* Texte Signature */}
-  <div className="flex flex-col leading-none">
-    <span className="text-xl md:text-2xl font-extrabold tracking-tighter font-['Montserrat'] bg-clip-text text-transparent bg-gradient-to-r from-[#fefefe] to-[#1d8ba6]">
+ <div className="flex flex-col leading-none min-w-0">
+    {/* Titre : s'adapte de text-lg (mobile) à text-2xl (desktop) */}
+    <span className="text-lg xs:text-xl md:text-2xl font-extrabold tracking-tighter font-['Montserrat'] bg-clip-text text-transparent bg-gradient-to-r from-[#1b798e] to-[#6dc9e0] truncate">
       DENTAL ZAIRI
     </span>
-    {/* <span className="text-[7px] md:text-[8px] font-bold text-[#0F4C5C] tracking-[0.2em] uppercase mt-0.5">
-      Centre d'implantologie et d'esthétique
-    </span> */}
+    
+    {/* Sous-titre : masqué sur mobile, visible dès 'sm' (640px) pour éviter l'encombrement */}
+    
   </div>
 </div>
 
