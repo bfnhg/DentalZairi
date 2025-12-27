@@ -8,7 +8,7 @@ export function About() {
   const { t } = useLanguage();
 
   const stats = [
-    { value: '15+', label: 'Expérience' },
+    { value: '6+', label: 'Expérience' },
     { value: '5k+', label: 'Patients' },
     { value: '100%', label: 'Hygiène' },
   ];
@@ -88,7 +88,7 @@ export function About() {
               </h2>
               
               <p className="text-lg text-slate-600 leading-relaxed border-l-4 border-[#2fb6d4] pl-6">
-                "Avec plus de 15 ans d'expérience, le Dr. Karim Zairi est un pionnier dans le domaine de l'implantologie dentaire au Maroc. Diplômé des meilleures universités européennes, il combine expertise technique et approche artistique."
+                "Avec une solide expérience professionnelle, le Dr. Karim Zairi est un pionnier dans le domaine de l'implantologie dentaire au Maroc. Diplômé des meilleures universités européennes, il combine expertise technique et approche artistique."
               </p>
             </motion.div>
 

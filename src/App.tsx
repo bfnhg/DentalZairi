@@ -17,12 +17,12 @@ function App() {
         <Hero />
         <About />
         <Services />
-        {/* <Testimonials />
+       <Testimonials />
         <FAQ />
-        <Emergency />
-        <Contact />
+         <Emergency />
+        {/*<Contact />
         <Footer /> */}
-      </div>d
+      </div>
     </LanguageProvider>
   );
 }
