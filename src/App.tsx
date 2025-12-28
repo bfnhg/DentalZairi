@@ -8,20 +8,25 @@ import { Testimonials } from './components/sections/Testimonials';
 import { FAQ } from './components/sections/FAQ';
 import { Emergency } from './components/sections/Emergency';
 import { Contact } from './components/sections/Contact';
+import { IntroVideo } from './components/video/IntroVideo';
 
 function App() {
   return (
     <LanguageProvider>
+     
+      
       <div className="bg-[#0F0F0F] overflow-x-hidden">
-        <Navbar />
+         <Navbar />
+         <IntroVideo />
+       
         <Hero />
         <About />
         <Services />
        <Testimonials />
         <FAQ />
          <Emergency />
-        {/*<Contact />
-        <Footer /> */}
+        <Contact />
+       {/* <Footer /> */}
       </div>
     </LanguageProvider>
   );
