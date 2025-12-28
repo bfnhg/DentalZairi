@@ -15,7 +15,7 @@ export function Contact() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const whatsappMessage = `Nom: ${formData.name}%0AEmail: ${formData.email}%0ATéléphone: ${formData.phone}%0AMessage: ${formData.message}`;
-    window.open(`https://wa.me/212537371113?text=${whatsappMessage}`, '_blank');
+    window.open(`https://wa.me/212601851426?text=${whatsappMessage}`, '_blank');
   };
 
   return (
@@ -53,7 +53,7 @@ export function Contact() {
 
               <div className="space-y-6">
                 <motion.a
-                  href="https://maps.google.com/?q=Rue+Oued+Fes+Kenitra"
+                  href="https://maps.google.com/?q=Marrakech+Morocco"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-start space-x-4 group cursor-pointer"
@@ -63,13 +63,13 @@ export function Contact() {
                     <MapPin className="w-6 h-6 text-[#0F4C5C]" />
                   </div>
                   <div>
-                    <h4 className="text-white font-semibold mb-1">{t('contact_address')}</h4>
-                    <p className="text-gray-400">{t('contact_address_line')}</p>
+                    <h4 className="text-white font-semibold mb-1">Localisation</h4>
+                    <p className="text-gray-400">Marrakech, Morocco</p>
                   </div>
                 </motion.a>
 
                 <motion.a
-                  href="tel:+212537371113"
+                  href="tel:+212601851426"
                   className="flex items-start space-x-4 group cursor-pointer"
                   whileHover={{ x: 10 }}
                 >
@@ -78,12 +78,12 @@ export function Contact() {
                   </div>
                   <div>
                     <h4 className="text-white font-semibold mb-1">Téléphone</h4>
-                    <p className="text-gray-400">0537 37 11 13</p>
+                    <p className="text-gray-400">+212 601 851 426</p>
                   </div>
                 </motion.a>
 
                 <motion.a
-                  href="mailto:contact@dentalzairi.ma"
+                  href="mailto:Zairi@dentalzairi.com"
                   className="flex items-start space-x-4 group cursor-pointer"
                   whileHover={{ x: 10 }}
                 >
@@ -92,21 +92,46 @@ export function Contact() {
                   </div>
                   <div>
                     <h4 className="text-white font-semibold mb-1">Email</h4>
-                    <p className="text-gray-400">contact@dentalzairi.ma</p>
+                    <p className="text-gray-400">Zairi@dentalzairi.com</p>
                   </div>
                 </motion.a>
               </div>
             </div>
 
-            <div className="h-64 rounded-2xl overflow-hidden border border-[#0F4C5C]/30 shadow-[0_0_40px_rgba(15,76,92,0.2)]">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3309.8!2d-6.5!3d34.26!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzTCsDE1JzM2LjAiTiA2wrAzMCcwMC4wIlc!5e0!3m2!1sen!2sma!4v1234567890"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                loading="lazy"
-              />
-            </div>
+            <motion.div 
+              className="h-64 rounded-2xl overflow-hidden border border-[#0F4C5C]/30 shadow-[0_0_40px_rgba(15,76,92,0.2)] bg-gradient-to-br from-[#0F4C5C]/20 via-[#0A262E]/30 to-[#0F0F0F]/40 backdrop-blur-xl flex items-center justify-center relative"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              {/* Éléments de décor animés */}
+              <div className="absolute inset-0 opacity-20">
+                <motion.div 
+                  className="absolute top-1/4 left-1/4 w-32 h-32 bg-[#0F4C5C] rounded-full filter blur-2xl"
+                  animate={{ y: [0, 20, 0] }}
+                  transition={{ duration: 4, repeat: Infinity }}
+                />
+                <motion.div 
+                  className="absolute bottom-1/4 right-1/4 w-40 h-40 bg-[#2fb6d4] rounded-full filter blur-3xl"
+                  animate={{ y: [0, -20, 0] }}
+                  transition={{ duration: 5, repeat: Infinity, delay: 0.5 }}
+                />
+              </div>
+
+              {/* Contenu */}
+              <div className="relative z-10 text-center">
+                <motion.div
+                  animate={{ scale: [1, 1.05, 1] }}
+                  transition={{ duration: 3, repeat: Infinity }}
+                  className="mb-4"
+                >
+                  <MapPin className="w-12 h-12 text-[#2fb6d4] mx-auto" />
+                </motion.div>
+                <h3 className="text-white font-semibold text-lg">Marrakech</h3>
+                <p className="text-gray-400 text-sm mt-1">Morocco</p>
+              </div>
+            </motion.div>
           </motion.div>
 
           <motion.div
@@ -184,7 +209,7 @@ export function Contact() {
       </div>
 
       <motion.a
-        href="https://wa.me/212537371113"
+        href="https://wa.me/212601851426"
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-8 right-8 w-16 h-16 bg-green-500 hover:bg-green-600 rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(34,197,94,0.6)] hover:shadow-[0_0_40px_rgba(34,197,94,0.8)] transition-all duration-300 z-50"

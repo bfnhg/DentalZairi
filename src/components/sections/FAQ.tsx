@@ -73,20 +73,20 @@ export function FAQ() {
                     {/* Flèche blanche */}
                     <motion.div
                       animate={{ rotate: isOpen ? 180 : 0 }}
-                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                      transition={{ duration: 0.15, ease: "easeInOut" }}
                     >
                       <ChevronDown size={28} className="text-white" strokeWidth={2} />
                     </motion.div>
                   </button>
 
-                  {/* Réponse - Collapse rapide */}
+                  {/* Réponse - Collapse très rapide */}
                   <AnimatePresence>
                     {isOpen && (
                       <motion.div
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: "auto", opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.35, ease: "easeInOut" }} // Plus rapide
+                        transition={{ duration: 0.2, ease: "easeInOut" }}
                         className="overflow-hidden"
                       >
                         <div className="px-8 pb-8 pt-2">
