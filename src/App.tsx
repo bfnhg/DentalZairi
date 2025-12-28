@@ -29,7 +29,7 @@ function App() {
         <FAQ />
          <Emergency />
         <Contact />
-       {/* <Footer /> */}
+       <Footer />
       </div>
     </LanguageProvider>
   );

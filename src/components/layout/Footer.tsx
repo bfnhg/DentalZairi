@@ -79,9 +79,9 @@ export function Footer() {
           >
             <h4 className="text-lg font-semibold text-white mb-4">Contact</h4>
             <ul className="space-y-2 text-gray-400">
-              <li>{t('contact_address_line')}</li>
-              <li>Tel: 0537 37 11 13</li>
-              <li>Email: contact@dentalzairi.ma</li>
+              <li>Marrakech, Morocco</li>
+              <li>Tel: +212 601 851 426</li>
+              <li>Email: Zairi@dentalzairi.com</li>
             </ul>
           </motion.div>
         </div>
