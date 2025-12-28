@@ -9,15 +9,18 @@ import { FAQ } from './components/sections/FAQ';
 import { Emergency } from './components/sections/Emergency';
 import { Contact } from './components/sections/Contact';
 import { IntroVideo } from './components/video/IntroVideo';
+import { useState } from 'react';
 
 function App() {
+  const [introEnded, setIntroEnded] = useState(false);
+
   return (
     <LanguageProvider>
      
       
       <div className="bg-[#0F0F0F] overflow-x-hidden">
-         <Navbar />
-         <IntroVideo />
+         {introEnded && <Navbar />}
+         <IntroVideo onIntroEnd={() => setIntroEnded(true)} />
        
         <Hero />
         <About />

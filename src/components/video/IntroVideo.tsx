@@ -2,7 +2,11 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
-export function IntroVideo() {
+interface IntroVideoProps {
+  onIntroEnd?: () => void;
+}
+
+export function IntroVideo({ onIntroEnd }: IntroVideoProps) {
   const [isVisible, setIsVisible] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -12,11 +16,15 @@ export function IntroVideo() {
 
     const handleEnded = () => {
       setIsVisible(false);
+      onIntroEnd?.();
     };
 
     video.addEventListener('ended', handleEnded);
 
-    const handleSkip = () => setIsVisible(false);
+    const handleSkip = () => {
+      setIsVisible(false);
+      onIntroEnd?.();
+    };
     document.addEventListener('click', handleSkip);
     window.addEventListener('scroll', handleSkip);
 
@@ -51,38 +59,34 @@ export function IntroVideo() {
       {/* Overlay mystérieux : gradient du noir au bleu pétrole */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-[#0A262E]/80 to-[#0A262E]/90" />
 
-      {/* Texte reveal progressif */}
-      {/* <div className="relative z-10 text-center px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1, duration: 1.5, ease: "easeOut" }}
-        >
-          <p className="text-2xl md:text-3xl text-white/60 font-light tracking-widest uppercase mb-8">
-            Découvrez
-          </p>
-        </motion.div>
-
+      {/* Titre Dental Zairi avec animation */}
+      <div className="relative z-10 text-center px-4 sm:px-6 md:px-8 max-w-full">
         <motion.h1
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 2, duration: 1.8, ease: "easeOut" }}
-          className="text-6xl md:text-8xl font-black text-white drop-shadow-2xl"
-          style={{ textShadow: '0 0 60px rgba(47, 182, 212, 0.4)' }}
+          initial={{ opacity: 0, y: -50, scale: 0.8 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ delay: 1.5, duration: 1.5, ease: "easeOut" }}
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-8xl font-black text-white drop-shadow-2xl leading-tight"
+          style={{ textShadow: '0 0 40px rgba(47, 182, 212, 0.6)' }}
         >
-          Le Sourire
-          <span className="block text-[#2fb6d4] mt-4">Parfait</span>
+          Dental Zairi
         </motion.h1>
 
+        <motion.div
+          initial={{ opacity: 0, scaleX: 0 }}
+          animate={{ opacity: 1, scaleX: 1 }}
+          transition={{ delay: 2.5, duration: 1, ease: "easeOut" }}
+          className="mt-4 sm:mt-5 md:mt-6 h-0.5 sm:h-1 w-16 sm:w-20 md:w-24 mx-auto bg-gradient-to-r from-transparent via-[#2fb6d4] to-transparent"
+        />
+
         <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 3.5, duration: 1.2 }}
-          className="mt-10 text-xl md:text-2xl text-white/70 font-light"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 3.5, duration: 1 }}
+          className="mt-6 sm:mt-7 md:mt-8 text-sm sm:text-base md:text-lg lg:text-xl text-white/70 font-light tracking-wide"
         >
-          Votre transformation commence ici
+          Votre sourire parfait commence ici
         </motion.p>
-      </div> */}
+      </div>
     </motion.section>
   );
 }
