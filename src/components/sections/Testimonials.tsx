@@ -40,6 +40,16 @@ before: ["/image/testi2before.jpeg", ],
   after: ["/image/testi3after.jpeg"],
   rating: 5,
 },
+ {
+  name: 'Hanane benali',
+  role: 'Avocate d’affaires',
+  treatment: 'Implants dentaires complets',
+  text: "Après avoir perdu plusieurs dents, je ne pensais pas retrouver un jour un sourire aussi naturel et fonctionnel. Le Dr. Zairi et son équipe m’ont redonné bien plus qu’un sourire : ils m’ont rendu ma sérénité.",
+  before: ["/image/testi4before.jpeg"],
+  after: ["/image/testi4after.jpeg"],
+  rating: 5,
+},
+
 ];
 
 export  function Testimonials() {

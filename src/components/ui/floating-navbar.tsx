@@ -48,27 +48,24 @@ export const FloatingNav = ({
         >
           {/* LOGO */}
           <div className="flex items-center gap-2">
-  {/* Icône stylisée inspirée du logo (optionnel) */}
-  <div className="hidden sm:block">
-    {/* <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-       <path d="M12 2C12 2 15 4 15 8C15 12 12 16 12 16C12 16 9 12 9 8C9 4 12 2 12 2Z" fill="#2fb6d4"/>
-       <path d="M12 22C12 22 19 18 19 12C19 6 12 2 12 2C12 2 5 6 5 12C5 18 12 22 12 22Z" stroke="#0F4C5C" strokeWidth="2"/>
-    </svg> */}
-  </div>
+            {/* Icône stylisée inspirée du logo (optionnel) */}
+            <div className="hidden sm:block">
+              {/* <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                 <path d="M12 2C12 2 15 4 15 8C15 12 12 16 12 16C12 16 9 12 9 8C9 4 12 2 12 2Z" fill="#2fb6d4"/>
+                 <path d="M12 22C12 22 19 18 19 12C19 6 12 2 12 2C12 2 5 6 5 12C5 18 12 22 12 22Z" stroke="#0F4C5C" strokeWidth="2"/>
+              </svg> */}
+            </div>
 
-  {/* Texte Signature */}
- <div className="flex flex-col leading-none min-w-0">
-    {/* Titre : s'adapte de text-lg (mobile) à text-2xl (desktop) */}
-    <span className="text-lg xs:text-xl md:text-2xl font-extrabold tracking-tighter font-['Montserrat'] bg-clip-text text-transparent bg-gradient-to-r from-[#1b798e] to-[#6dc9e0] truncate">
-      DENTAL ZAIRI
-    </span>
-    
-    {/* Sous-titre : masqué sur mobile, visible dès 'sm' (640px) pour éviter l'encombrement */}
-    
-  </div>
-</div>
+            {/* Texte Signature */}
+            <div className="flex flex-col leading-none min-w-0">
+              {/* Titre : s'adapte de text-lg (mobile) à text-2xl (desktop) */}
+              <span className="text-lg xs:text-xl md:text-2xl font-extrabold tracking-tighter font-['Montserrat'] bg-clip-text text-transparent bg-gradient-to-r from-[#1b798e] to-[#6dc9e0] truncate">
+                DENTAL ZAIRI
+              </span>
+            </div>
+          </div>
 
-          {/* VERSION MOBILE : 2 liens visibles directement */}
+          {/* VERSION MOBILE : 1er lien visible directement */}
           <div className="flex md:hidden items-center space-x-4 text-[10px] font-bold uppercase tracking-[0.2em]">
             {mobileVisibleItems.map((navItem, idx) => (
               <a
@@ -106,16 +103,16 @@ export const FloatingNav = ({
             ))}
           </div>
 
-          {/* BOUTON APPEL URGENCE - Même style, nouveau texte */}
-          <button
-            onClick={() => (window.location.href = "tel:+212537371113")}
+          {/* BOUTON CONTACTEZ-NOUS - Redirection vers le formulaire de contact */}
+          <a
+            href="#contact"
             className="border border-white/20 text-white px-4 py-2 rounded-full bg-[#2fb6d4] hover:bg-[#259eb9] transition-all"
           >
             <span className="text-[10px] font-black uppercase tracking-wider">
-              <span className="md:hidden">Urgence</span>
-              <span className="hidden md:inline">Appel Urgence</span>
+              <span className="md:hidden">Contact</span>
+              <span className="hidden md:inline">Contactez-nous</span>
             </span>
-          </button>
+          </a>
         </motion.div>
       </AnimatePresence>
 
@@ -149,16 +146,14 @@ export const FloatingNav = ({
                 </a>
               ))}
 
-              {/* Bouton Appel Urgence dans le menu mobile aussi */}
-              <button
-                onClick={() => {
-                  window.location.href = "tel:+212537371113";
-                  setMobileMenuOpen(false);
-                }}
-                className="w-full mt-8 border border-white/20 text-white px-6 py-3 rounded-full bg-[#2fb6d4] hover:bg-[#259eb9] transition-all font-bold uppercase tracking-wider"
+              {/* Bouton Contactez-nous dans le menu mobile aussi */}
+              <a
+                href="#contact"
+                onClick={() => setMobileMenuOpen(false)}
+                className="w-full mt-8 border border-white/20 text-white px-6 py-3 rounded-full bg-[#2fb6d4] hover:bg-[#259eb9] transition-all font-bold uppercase tracking-wider text-center"
               >
-                Appel Urgence
-              </button>
+                Contactez-nous
+              </a>
             </motion.div>
           </>
         )}
