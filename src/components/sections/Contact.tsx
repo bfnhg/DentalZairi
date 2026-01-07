@@ -2,6 +2,8 @@ import { motion } from 'framer-motion';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { MapPin, Phone, Mail, MessageCircle } from 'lucide-react';
 import { useState } from 'react';
+import { FaWhatsapp } from "react-icons/fa";
+
 
 export function Contact() {
   const { t } = useLanguage();
@@ -15,7 +17,7 @@ export function Contact() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const whatsappMessage = `Nom: ${formData.name}%0AEmail: ${formData.email}%0ATéléphone: ${formData.phone}%0AMessage: ${formData.message}`;
-    window.open(`https://wa.me/212601851426?text=${whatsappMessage}`, '_blank');
+    window.open(`https://wa.me/212688175531?text=${whatsappMessage}`, '_blank');
   };
 
   return (
@@ -53,7 +55,7 @@ export function Contact() {
 
               <div className="space-y-6">
                 <motion.a
-                  href="https://maps.google.com/?q=Marrakech+Morocco"
+                  href="https://maps.app.goo.gl/vBDSb5j2P68EDexm9?g_st=ipc"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-start space-x-4 group cursor-pointer"
@@ -69,7 +71,7 @@ export function Contact() {
                 </motion.a>
 
                 <motion.a
-                  href="tel:+212601851426"
+                  href="tel:+212688175531"
                   className="flex items-start space-x-4 group cursor-pointer"
                   whileHover={{ x: 10 }}
                 >
@@ -120,17 +122,23 @@ export function Contact() {
               </div>
 
               {/* Contenu */}
-              <div className="relative z-10 text-center">
-                <motion.div
-                  animate={{ scale: [1, 1.05, 1] }}
-                  transition={{ duration: 3, repeat: Infinity }}
-                  className="mb-4"
-                >
-                  <MapPin className="w-12 h-12 text-[#2fb6d4] mx-auto" />
-                </motion.div>
-                <h3 className="text-white font-semibold text-lg">Marrakech</h3>
-                <p className="text-gray-400 text-sm mt-1">Morocco</p>
-              </div>
+             <motion.div
+  className="relative z-10 w-full h-full rounded-xl overflow-hidden border border-[#0F4C5C]/30 shadow-[0_0_40px_rgba(15,76,92,0.2)]"
+  initial={{ opacity: 0, scale: 0.95 }}
+  whileInView={{ opacity: 1, scale: 1 }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.8 }}
+>
+  <iframe
+    title="Dental Zairi Location"
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3397.2717823730886!2d-8.0358621!3d31.6264082!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xdafef007c1cceb1%3A0x6cd5ee558aba20e7!2sDENTAL%20ZAIRI!5e0!3m2!1sfr!2sma!4v1767718687711!5m2!1sfr!2sma"
+    className="w-full h-full border-0"
+    loading="lazy"
+    referrerPolicy="no-referrer-when-downgrade"
+  />
+</motion.div>
+
+
             </motion.div>
           </motion.div>
 
@@ -209,7 +217,7 @@ export function Contact() {
       </div>
 
       <motion.a
-        href="https://wa.me/212601851426"
+        href="https://wa.me/212688175531"
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-8 right-8 w-16 h-16 bg-green-500 hover:bg-green-600 rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(34,197,94,0.6)] hover:shadow-[0_0_40px_rgba(34,197,94,0.8)] transition-all duration-300 z-50"
@@ -223,7 +231,7 @@ export function Contact() {
         whileHover={{ scale: 1.2 }}
         whileTap={{ scale: 0.9 }}
       >
-        <MessageCircle className="w-8 h-8 text-white" />
+  <FaWhatsapp className="w-8 h-8 text-white" />
       </motion.a>
     </section>
   );

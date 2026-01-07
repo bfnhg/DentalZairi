@@ -115,7 +115,7 @@ export function Emergency() {
             {/* Bouton d'appel premium */}
             <a
               ref={ctaRef}
-              href="tel:+212537371113"
+              href="tel:+212524343364"
               className="inline-flex items-center space-x-4 mt-12 px-14 py-6 bg-[#2fb6d4] text-[#0A262E] text-xl font-bold rounded-2xl shadow-[0_0_40px_rgba(47,182,212,0.4)] transition-all duration-300"
             >
               <Phone className="w-7 h-7" />

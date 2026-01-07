@@ -85,7 +85,7 @@ export function Hero() {
               <GlowButton 
                 variant="emergency" 
                 className="w-full sm:w-auto flex items-center justify-center bg-[#0F4C5C] text-white text-sm py-4 px-8 font-bold border-none shadow-lg hover:bg-[#0a3540]"
-                onClick={() => window.location.href = 'tel:+212601851426'}
+                onClick={() => window.location.href = 'tel:+212688175531'}
               >
                 <Phone size={18} className="mr-2 text-[#2fb6d4]" />
                 Urgence 24/7
