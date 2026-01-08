@@ -8,7 +8,7 @@ export function About() {
   const { t } = useLanguage();
 
   const stats = [
-    { value: '6+', label: 'Expérience' },
+    { value: '8+', label: 'Expérience' },
     { value: '5k+', label: 'Patients' },
     { value: '100%', label: 'Hygiène' },
   ];

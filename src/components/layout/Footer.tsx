@@ -79,8 +79,9 @@ export function Footer() {
           >
             <h4 className="text-lg font-semibold text-white mb-4">Contact</h4>
             <ul className="space-y-2 text-gray-400">
-              <li>Marrakech, Morocco</li>
-              <li>Tel: +212 601 851 426</li>
+              <li>Marrakech, Morocco</li> 
+              <li>WTSP: 06 88 17 55 31</li>
+              <li>FIX: 05 24 34 33 64</li>
               <li>Email: Zairi@dentalzairi.com</li>
             </ul>
           </motion.div>

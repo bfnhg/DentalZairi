@@ -80,7 +80,7 @@ export function Contact() {
                   </div>
                   <div>
                     <h4 className="text-white font-semibold mb-1">Téléphone</h4>
-                    <p className="text-gray-400">+212 601 851 426</p>
+                    <p className="text-gray-400">+212 524 34 33 64</p>
                   </div>
                 </motion.a>
 
