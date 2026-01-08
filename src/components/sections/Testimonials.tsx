@@ -17,27 +17,28 @@ type Testimonial = {
 };
 
 const testimonials: Testimonial[] = [
+
+  {
+    name: "Nadia Khaled",
+    role: "Résultat après 4 mois",
+    treatment: "Blanchiment dentaire",
+    text: "Résultat naturel et indolore. Je recommande fortement cette clinique.",
+    rating: 5,
+    before: ["/image/testi2before.jpeg"],
+    after: ["/image/after2.jpeg"],
+  },
   
-  // {
-  //   name: "Sara ben Amor",
-  //   role: "Résultat après 4 mois",
-  //   treatment: "Blanchiment dentaire",
-  //   text: "Résultat naturel et indolore. Je recommande fortement cette clinique.",
-  //   rating: 5,
-  //   before: ["/image/testii1before.jpeg"],
-  //   after: ["/image/testii1after.jpeg"],
-  // },
+  {
+    name: "Sara ben Amor",
+    role: "Résultat après 4 mois",
+    treatment: "Couronne zircone",
+    text: "Résultat naturel et indolore. Je recommande fortement cette clinique.",
+    rating: 5,
+    before: ["/image/testii1before.jpeg"],
+    after: ["/image/testii1after.jpeg"],
+  },
   
-  // {
-  //   name: "Salma Trabelsi",
-  //   role: "Résultat après 6 mois",
-  //   treatment: "Couronne zircone",
-  //   text: "Je suis très satisfait du résultat. L’équipe était professionnelle et rassurante du début à la fin.",
-  //   rating: 5,
   
-  //    before: ["/image/testi5before.jpeg"],
-  //   after: ["/image/testi5after.jpeg","/image/testii5after.jpeg"],
-  // },
    {
     name: "Salma Trabelsi",
     role: "Résultat après 6 mois",
@@ -48,24 +49,16 @@ const testimonials: Testimonial[] = [
      before: ["/image/testi5before.jpeg"],
     after: ["/image/testi5after.jpeg","/image/testii5after.jpeg"],
   },
-  {
-    name: "Nadia Khaled",
-    role: "Résultat après 4 mois",
-    treatment: "Blanchiment dentaire",
-    text: "Résultat naturel et indolore. Je recommande fortement cette clinique.",
-    rating: 5,
-    before: ["/image/testi2before.jpeg"],
-    after: ["/image/testi2after.jpeg"],
-  },
-  {
-    name: "Rania Belhaje",
-    role: "Résultat après 6 mois",
-    treatment: "Implants dentaires",
-    text: "Je suis très satisfait du résultat. L’équipe était professionnelle et rassurante du début à la fin.",
-    rating: 5,
-     before: ["/image/testi3before.jpeg"],
-    after: ["/image/testi3after.jpeg"],
-  },
+  
+  // {
+  //   name: "Rania Belhaje",
+  //   role: "Résultat après 6 mois",
+  //   treatment: "Implants dentaires",
+  //   text: "Je suis très satisfait du résultat. L’équipe était professionnelle et rassurante du début à la fin.",
+  //   rating: 5,
+  //    before: ["/image/testi3before.jpeg"],
+  //   after: ["/image/after.jpeg"],
+  // },
 
 ];
 
