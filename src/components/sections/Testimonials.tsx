@@ -78,7 +78,7 @@ const handleNext = () => {
   );
 };
   return (
-    <section className="py-24 bg-slate-50 overflow-hidden">
+    <section  id="testimonials" className="py-24 bg-slate-50 overflow-hidden">
       <div className="max-w-6xl mx-auto px-6">
         
         {/* HEADER */}

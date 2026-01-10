@@ -2,12 +2,21 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { IconArrowNarrowRight, IconArrowNarrowLeft } from "@tabler/icons-react";
+import { HoverBorderGradient } from "../ui/hover-border-gradient"; // ou le chemin correct
+
 
 interface SlideData {
   title: string;
   src: string;
   description: string;
   tags: string[];
+  details: {
+    fullDescription: string;
+    benefits: string[];
+    process: string[];
+    duration: string;
+    price: string;
+  };
 }
 
 const servicesSlides: SlideData[] = [
@@ -15,57 +24,194 @@ const servicesSlides: SlideData[] = [
     title: "Dentisterie Esthétique",
     src: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=800&h=600&fit=crop&crop=center",
     description: "Facettes céramiques, blanchiment professionnel et design du sourire numérique.",
-    tags: ["Facettes", "Blanchiment", "Design numérique"]
+    tags: ["Facettes", "Blanchiment", "Design numérique"],
+    details: {
+      fullDescription: "La dentisterie esthétique transforme votre sourire grâce à des techniques avancées et des matériaux de haute qualité. Nos spécialistes utilisent la technologie numérique pour créer un sourire parfaitement adapté à votre visage.",
+      benefits: [
+        "Sourire éclatant et naturel",
+        "Confiance en soi renforcée",
+        "Résultats durables et esthétiques",
+        "Techniques minimalement invasives"
+      ],
+      process: [
+        "Consultation et analyse du sourire",
+        "Design numérique personnalisé",
+        "Préparation et essayage",
+        "Pose définitive et ajustements"
+      ],
+      duration: "2 à 4 séances",
+      price: "À partir de 5000 DH"
+    }
   },
   { 
     title: "Chirurgie Implantaire",
     src: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800&h=600&fit=crop&crop=center",
     description: "Implants en titane avec planification 3D pour une pose précise et durable.",
-    tags: ["Implants", "Greffe osseuse", "Planification 3D"]
+    tags: ["Implants", "Greffe osseuse", "Planification 3D"],
+    details: {
+      fullDescription: "Nos implants dentaires en titane offrent une solution permanente pour remplacer vos dents manquantes. Grâce à la planification 3D, nous garantissons une pose précise et un résultat optimal.",
+      benefits: [
+        "Solution permanente et stable",
+        "Préserve l'os de la mâchoire",
+        "Aspect et fonction naturels",
+        "Taux de réussite élevé (98%)"
+      ],
+      process: [
+        "Scanner 3D et planification",
+        "Pose de l'implant (chirurgie)",
+        "Période d'ostéointégration (3-6 mois)",
+        "Pose de la couronne définitive"
+      ],
+      duration: "4 à 6 mois (total)",
+      price: "À partir de 8000 DH par implant"
+    }
   },
   { 
     title: "Chirurgie Orale",
     src: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&h=600&fit=crop&crop=center",
     description: "Extractions complexes, dents de sagesse et chirurgies avec technologie laser.",
-    tags: ["Extractions", "Sagesse", "Laser"]
+    tags: ["Extractions", "Sagesse", "Laser"],
+    details: {
+      fullDescription: "Notre service de chirurgie orale prend en charge tous types d'interventions, des extractions simples aux cas complexes. L'utilisation du laser réduit la douleur et accélère la guérison.",
+      benefits: [
+        "Interventions précises et rapides",
+        "Récupération accélérée",
+        "Douleur minimisée",
+        "Risque d'infection réduit"
+      ],
+      process: [
+        "Examen clinique et radiologique",
+        "Anesthésie locale ou sédation",
+        "Intervention chirurgicale",
+        "Suivi post-opératoire"
+      ],
+      duration: "30 min à 2h selon complexité",
+      price: "À partir de 800 DH"
+    }
   },
   { 
     title: "Orthopédie Dento-Faciale",
     src: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=800&h=600&fit=crop&crop=center",
     description: "Correction des déséquilibres de mâchoire et harmonisation faciale.",
-    tags: ["ODF", "Appareils", "Harmonisation"]
+    tags: ["ODF", "Appareils", "Harmonisation"],
+    details: {
+      fullDescription: "L'orthopédie dento-faciale corrige les déséquilibres de croissance des mâchoires chez l'enfant et l'adolescent. Un traitement précoce permet d'obtenir des résultats optimaux.",
+      benefits: [
+        "Croissance harmonieuse du visage",
+        "Prévention des problèmes orthodontiques",
+        "Amélioration de la respiration",
+        "Profil facial équilibré"
+      ],
+      process: [
+        "Diagnostic complet (radios, moulages)",
+        "Mise en place de l'appareil",
+        "Visites de contrôle mensuelles",
+        "Phase de contention"
+      ],
+      duration: "12 à 24 mois",
+      price: "À partir de 15000 DH"
+    }
   },
   { 
     title: "Invisalign",
     src: "https://images.unsplash.com/photo-1598256989800-fe5f95da9787?w=800&h=600&fit=crop&crop=center",
     description: "Aligneurs transparents pour un traitement orthodontique discret et confortable.",
-    tags: ["Invisalign", "Transparent", "Discret"]
+    tags: ["Invisalign", "Transparent", "Discret"],
+    details: {
+      fullDescription: "Invisalign utilise des aligneurs transparents sur mesure pour redresser vos dents de manière discrète. Amovibles et confortables, ils s'adaptent parfaitement à votre style de vie.",
+      benefits: [
+        "Pratiquement invisible",
+        "Amovible pour manger et se brosser",
+        "Confortable sans métal",
+        "Résultats prévisibles en 3D"
+      ],
+      process: [
+        "Scan 3D et simulation du résultat",
+        "Fabrication des aligneurs personnalisés",
+        "Changement d'aligneurs toutes les 2 semaines",
+        "Suivi régulier tous les 2 mois"
+      ],
+      duration: "8 à 18 mois",
+      price: "À partir de 35000 DH"
+    }
   },
   { 
     title: "Pédodontie",
     src: "https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=800&h=600&fit=crop&crop=center",
     description: "Soins dentaires spécialisés pour enfants dans un environnement adapté.",
-    tags: ["Enfants", "Prévention", "Ludique"]
+    tags: ["Enfants", "Prévention", "Ludique"],
+    details: {
+      fullDescription: "Notre équipe de pédodontie crée une expérience positive pour vos enfants. Des soins adaptés dans un environnement ludique et rassurant pour préserver leur santé dentaire.",
+      benefits: [
+        "Approche douce et rassurante",
+        "Prévention des caries précoces",
+        "Éducation à l'hygiène bucco-dentaire",
+        "Suivi de la croissance dentaire"
+      ],
+      process: [
+        "Premier contact et familiarisation",
+        "Examen complet et nettoyage",
+        "Soins si nécessaire",
+        "Conseils de prévention"
+      ],
+      duration: "30 à 45 minutes",
+      price: "À partir de 300 DH"
+    }
   },
   { 
     title: "Dentisterie Numérique",
     src: "https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=800&h=600&fit=crop&crop=center",
     description: "Technologies numériques : scan intra-oral, CFAO et restauration rapide.",
-    tags: ["Numérique", "CFAO", "Scan 3D"]
+    tags: ["Numérique", "CFAO", "Scan 3D"],
+    details: {
+      fullDescription: "La dentisterie numérique révolutionne les soins dentaires avec des technologies de pointe. Scan 3D, conception assistée par ordinateur et fabrication le jour même.",
+      benefits: [
+        "Précision maximale",
+        "Pas d'empreintes désagréables",
+        "Restaurations en une seule séance",
+        "Résultats esthétiques supérieurs"
+      ],
+      process: [
+        "Scan intra-oral 3D",
+        "Conception numérique de la restauration",
+        "Fabrication immédiate (CFAO)",
+        "Pose et ajustements"
+      ],
+      duration: "1 à 2 heures (séance unique)",
+      price: "À partir de 3500 DH"
+    }
   },
   { 
     title: "Radiologie 2D/3D Cone Beam",
     src: "https://images.unsplash.com/photo-1609840114035-3c981407e31f?w=800&h=600&fit=crop&crop=center",
     description: "Imagerie CBCT 3D de précision pour diagnostics et planification.",
-    tags: ["CBCT", "Radiologie", "3D"]
+    tags: ["CBCT", "Radiologie", "3D"],
+    details: {
+      fullDescription: "Notre équipement CBCT de dernière génération offre une imagerie 3D haute résolution. Indispensable pour la planification implantaire et le diagnostic précis.",
+      benefits: [
+        "Images 3D ultra-précises",
+        "Irradiation minimale",
+        "Diagnostic complet en une seule prise",
+        "Planification chirurgicale optimale"
+      ],
+      process: [
+        "Positionnement du patient",
+        "Acquisition 3D (10-20 secondes)",
+        "Reconstruction et analyse",
+        "Remise du CD avec images"
+      ],
+      duration: "15 minutes",
+      price: "À partir de 800 DH"
+    }
   }
 ];
 
-const Slide = ({ slide, index, current, handleSlideClick }: { 
+const Slide = ({ slide, index, current, handleSlideClick, onLearnMore }: { 
   slide: SlideData; 
   index: number; 
   current: number; 
   handleSlideClick: (index: number) => void;
+  onLearnMore: (slide: SlideData) => void;
 }) => {
   const slideRef = useRef<HTMLDivElement>(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -236,7 +382,7 @@ const Slide = ({ slide, index, current, handleSlideClick }: {
             {/* Tags - seulement pour carte active */}
             {current === index && (
               <motion.div 
-                className="flex flex-wrap gap-1 md:gap-1.5"
+                className="flex flex-wrap gap-1 md:gap-1.5 mb-3"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.3 }}
@@ -253,6 +399,25 @@ const Slide = ({ slide, index, current, handleSlideClick }: {
                   </motion.span>
                 ))}
               </motion.div>
+            )}
+
+            {/* Bouton En savoir plus - seulement pour carte active */}
+            {current === index && (
+              <motion.button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onLearnMore(slide);
+                }}
+                className="w-full py-2.5 px-4 rounded-lg bg-gradient-to-r from-[#2fb6d4] to-[#0F4C5C] text-white font-semibold text-sm flex items-center justify-center gap-2 shadow-lg"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+                whileHover={{ scale: 1.02, boxShadow: "0 10px 30px rgba(47, 182, 212, 0.4)" }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <span>En savoir plus</span>
+                <IconArrowNarrowRight size={18} />
+              </motion.button>
             )}
           </div>
         )}
@@ -297,11 +462,17 @@ const AnimatedTitle = ({ text }: { text: string }) => {
   );
 };
 
-export function Services() {
-  const [currentSlide, setCurrentSlide] = useState(0); // Commence à la carte 2 (index 1)
+export  function Services() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [selectedService, setSelectedService] = useState<SlideData | null>(null);
   const slidesContainerRef = useRef<HTMLDivElement>(null);
   const carouselRef = useRef<HTMLDivElement>(null);
   const autoPlayRef = useRef<NodeJS.Timeout>();
+
+
+  const phoneNumber = "212600000000"; // ← CHANGEZ ICI (format international sans + ni 00)
+const messageTemplate = (service: string) => 
+  `Bonjour ! Je souhaiterais prendre rendez-vous pour :\n\n• ${service}\n• Nom : \n• Téléphone : \nMerci ! 😊`;
 
   const handlePrev = () => {
     setCurrentSlide(prev => prev === 0 ? servicesSlides.length - 1 : prev - 1);
@@ -325,39 +496,27 @@ export function Services() {
     autoPlayRef.current = setTimeout(handleNext, 4000);
   };
 
-  // CALCUL CORRIGÉ : On veut que la carte "currentSlide" soit au centre
- const getContainerTransform = () => {
-  if (!carouselRef.current) return '0px';
+  const getContainerTransform = () => {
+    if (!carouselRef.current) return '0px';
+    const containerWidth = carouselRef.current.offsetWidth;
+    const slideWidth = 280;
+    const margin = 16;
+    const slideFullWidth = slideWidth + margin;
+    const center = containerWidth / 2;
+    const activeSlideCenter = currentSlide * slideFullWidth + slideWidth / 2;
+    return `${center - activeSlideCenter}px`;
+  };
 
-  const containerWidth = carouselRef.current.offsetWidth;
-
-  const slideWidth = 280; // mobile
-  const margin = 16;
-  const slideFullWidth = slideWidth + margin;
-
-  const center = containerWidth / 2;
-  const activeSlideCenter =
-    currentSlide * slideFullWidth + slideWidth / 2;
-
-  return `${center - activeSlideCenter}px`;
-};
-
-
-
-  // Recalcule au resize
   useEffect(() => {
     const handleResize = () => {
       setCurrentSlide(prev => prev);
     };
-    
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Auto-scroll
   useEffect(() => {
     autoPlayRef.current = setTimeout(handleNext, 4000);
-    
     return () => {
       if (autoPlayRef.current) {
         clearTimeout(autoPlayRef.current);
@@ -367,6 +526,148 @@ export function Services() {
 
   return (
     <section id="services" className="relative py-12 md:py-20 lg:py-24 bg-[#0A262E] overflow-hidden">
+      {/* Modal */}
+      {selectedService && (
+        <motion.div
+          className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          onClick={() => setSelectedService(null)}
+        >
+          <motion.div
+            className="relative bg-gradient-to-br from-[#1D1F2F] to-[#0A262E] rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-[#2fb6d4]/20"
+            initial={{ scale: 0.9, y: 20 }}
+            animate={{ scale: 1, y: 0 }}
+            exit={{ scale: 0.9, y: 20 }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Header avec image */}
+            <div className="relative h-48 md:h-64 overflow-hidden rounded-t-2xl">
+              <img
+                src={selectedService.src}
+                alt={selectedService.title}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0A262E] via-[#0A262E]/80 to-transparent" />
+              
+              {/* Bouton fermer */}
+              <button
+                onClick={() => setSelectedService(null)}
+                className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white hover:bg-white/20 transition-all"
+              >
+                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+
+              {/* Titre */}
+              <div className="absolute bottom-6 left-6 right-6">
+                <h3 className="text-3xl md:text-4xl font-bold text-white mb-2">
+                  {selectedService.title}
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {selectedService.tags.map((tag, i) => (
+                    <span
+                      key={i}
+                      className="px-3 py-1 text-sm rounded-full bg-[#2fb6d4]/20 backdrop-blur-md text-[#2fb6d4] border border-[#2fb6d4]/30"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Contenu */}
+            <div className="p-6 md:p-8 space-y-6">
+              {/* Description complète */}
+              <div>
+                <h4 className="text-[#2fb6d4] font-bold text-lg mb-3">Description</h4>
+                <p className="text-white/80 text-base leading-relaxed">
+                  {selectedService.details.fullDescription}
+                </p>
+              </div>
+
+              {/* Avantages */}
+              <div>
+                <h4 className="text-[#2fb6d4] font-bold text-lg mb-3">Avantages</h4>
+                <ul className="space-y-2">
+                  {selectedService.details.benefits.map((benefit, i) => (
+                    <motion.li
+                      key={i}
+                      className="flex items-start gap-3 text-white/80"
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: i * 0.1 }}
+                    >
+                      <svg className="w-5 h-5 text-[#2fb6d4] flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      </svg>
+                      <span>{benefit}</span>
+                    </motion.li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Processus */}
+              <div>
+                <h4 className="text-[#2fb6d4] font-bold text-lg mb-3">Processus de traitement</h4>
+                <div className="space-y-3">
+                  {selectedService.details.process.map((step, i) => (
+                    <motion.div
+                      key={i}
+                      className="flex items-start gap-4"
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: i * 0.1 }}
+                    >
+                      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#2fb6d4]/20 flex items-center justify-center text-[#2fb6d4] font-bold border border-[#2fb6d4]/30">
+                        {i + 1}
+                      </div>
+                      <p className="text-white/80 pt-1">{step}</p>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Durée et prix */}
+            
+
+              {/* CTA */}
+              {/* <motion.button
+                className="w-full py-4 rounded-lg bg-gradient-to-r from-[#2fb6d4] to-[#0F4C5C] text-white font-bold text-lg shadow-lg"
+                whileHover={{ scale: 1.02, boxShadow: "0 10px 40px rgba(47, 182, 212, 0.4)" }}
+                whileTap={{ scale: 0.98 }}
+              >
+                Prendre rendez-vous
+              </motion.button> */}
+
+<motion.div
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ delay: 0.6 }}
+  className="mt-8" // espace au-dessus si besoin
+>
+  <HoverBorderGradient
+    as="a" // Transforme en lien <a>
+    href={`https://wa.me/212688175531?text=${encodeURIComponent(
+      `Bonjour ! Je souhaiterais prendre rendez-vous pour ${selectedService?.title || "une consultation"}.\nMerci ! 😊`
+    )}`}
+    target="_blank"
+    rel="noopener noreferrer"
+    duration={3} // Vitesse de rotation du gradient (plus lent = plus élégant)
+    clockwise={false} // Rotation dans le sens anti-horaire
+    className="w-full"
+    containerClassName="w-full"
+  >
+ Consultation gratuite sur WhatsApp  </HoverBorderGradient>
+</motion.div>
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
+
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#0A262E] via-[#0F3A42] to-[#0A262E] opacity-90">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=1800&auto=format&fit=crop')] opacity-5 bg-cover bg-center"></div>
@@ -397,35 +698,24 @@ export function Services() {
           >
             Découvrez nos spécialités dentaires de pointe, alliant technologie avancée et expertise médicale.
           </motion.p>
-
-          {/* Affichage du numéro du service actuel - CORRIGÉ */}
-          {/* <motion.div 
-            className="text-[#2fb6d4] font-bold text-lg md:text-xl lg:text-2xl mb-2"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-          >
-            Service {currentSlide + 1} sur {servicesSlides.length}
-          </motion.div> */}
         </div>
 
         {/* 3D Carousel Container */}
         <div className="relative" ref={carouselRef}>
           <div className="overflow-visible">
             <div className="h-[350px] md:h-[400px] lg:h-[450px] relative flex items-center justify-center">
-              {/* Container avec perspective */}
               <div 
                 className="relative w-full h-full"
                 style={{ perspective: "1200px" }}
               >
-                {/* Slides Container qui se déplace */}
                 <div
                   ref={slidesContainerRef}
-                 className="absolute top-1/2 flex items-center"
-  style={{
-    transform: `translate3d(${getContainerTransform()}, -50%, 0)`,
-    transition: 'transform 0.7s cubic-bezier(0.4, 0, 0.2, 1)',
-    willChange: 'transform',
-  }}
+                  className="absolute top-1/2 flex items-center"
+                  style={{
+                    transform: `translate3d(${getContainerTransform()}, -50%, 0)`,
+                    transition: 'transform 0.7s cubic-bezier(0.4, 0, 0.2, 1)',
+                    willChange: 'transform',
+                  }}
                 >
                   {servicesSlides.map((slide, index) => (
                     <Slide
@@ -434,6 +724,7 @@ export function Services() {
                       index={index}
                       current={currentSlide}
                       handleSlideClick={handleSlideClick}
+                      onLearnMore={setSelectedService}
                     />
                   ))}
                 </div>
@@ -526,4 +817,5 @@ export function Services() {
       </style>
     </section>
   );
+
 }
