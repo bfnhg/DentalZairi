@@ -9,15 +9,13 @@ export function Hero() {
   const { t } = useLanguage();
 
   const images = [
-    "/image/cab1.webp",
+    "/image/cab7.webp",
+      "/image/cab1.webp",
     "/image/cab2.webp",
     "/image/cab3.webp",
     "/image/cab4.webp",
     "/image/cab5.webp",
-    "/image/cab6.webp",
-    "/image/cab7.webp",
-    
-   
+    "/image/cab6.webp"
   ];
   
   const [currentImage, setCurrentImage] = useState(0);
@@ -126,20 +124,17 @@ export function Hero() {
               />
               
               <div className="relative bg-white p-2 md:p-3 rounded-[2.8rem] shadow-2xl border border-slate-100">
-<div className="relative rounded-[2.2rem] h-[320px] md:h-[520px] w-full overflow-hidden bg-slate-900 transform-gpu">
+                <div className="relative rounded-[2.2rem] h-[320px] md:h-[520px] w-full overflow-hidden bg-slate-900">
                   {images.map((img, idx) => (
                     <motion.img
-  key={img}
-  src={img}
-  animate={{ opacity: currentImage === idx ? 1 : 0 }}
-  transition={{ duration: 1.2, ease: "easeInOut" }}
-  className="absolute inset-0 w-full h-full object-cover pointer-events-none"
-  style={{ willChange: "opacity" }}
-/>
-
+                      key={img}
+                      src={img}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: currentImage === idx ? 1 : 0 }}
+                      transition={{ duration: 1, ease: "easeInOut" }}
+                      className="absolute inset-0 w-full h-full object-cover"
+                    />
                   ))}
-                  
-
                   
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
                   
